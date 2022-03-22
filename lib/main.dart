@@ -10,9 +10,12 @@ class Delivery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      theme: ThemeData(
+        brightness: Brightness.light
+      ),
+      home: const HomeScreen(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:delivery/model/category_model.dart';
 import 'package:delivery/view/widgets/category_widget.dart';
 import 'package:delivery/view/widgets/details_widget.dart';
+import 'package:delivery/view/widgets/my_drawer_header.dart';
 import 'package:delivery/view/widgets/notice_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +12,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var key = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: key,
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.85,
+        child: Drawer(
+          child: Column(
+            children: const [
+              MyDrawerHeader(),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.black,
-          size: 30,
+        leading: GestureDetector(
+          onTap: () {
+            key.currentState!.openDrawer();
+          },
+          child: const Icon(
+            Icons.menu,
+            color: Colors.black,
+            size: 30,
+          ),
         ),
         title: Center(
           child: Column(
@@ -85,7 +103,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
               ),
             ),
-
             const Padding(
               padding: EdgeInsetsDirectional.only(start: 20.0, top: 20.0,bottom: 20.0),
               child: Text(
@@ -107,7 +124,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
               ),
             ),
-
             Padding(
               padding: const EdgeInsetsDirectional.only(top: 25,bottom: 20),
               child: Center(

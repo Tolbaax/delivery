@@ -2,8 +2,8 @@ import 'package:delivery/model/category_model.dart';
 import 'package:flutter/material.dart';
 
 class CategoryWidget extends StatefulWidget {
-  CategoryModel category;
-  CategoryWidget({Key? key, required this.category}) : super(key: key);
+  final CategoryModel category;
+  const CategoryWidget({Key? key, required this.category}) : super(key: key);
 
   @override
   State<CategoryWidget> createState() => _CategoryWidgetState();
