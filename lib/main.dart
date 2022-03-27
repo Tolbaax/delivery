@@ -13,7 +13,7 @@ class Delivery extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.light
+        brightness: Brightness.light,
       ),
       home: const HomeScreen(),
     );

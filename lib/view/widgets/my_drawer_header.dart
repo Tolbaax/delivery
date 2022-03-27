@@ -1,5 +1,6 @@
-import 'package:delivery/view/screens/seetings_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../screens/settings_screen.dart';
 
 class MyDrawerHeader extends StatelessWidget {
   const MyDrawerHeader({Key? key}) : super(key: key);
@@ -7,15 +8,10 @@ class MyDrawerHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.only(start: 15,top: 20,end: 10),
-      child: GestureDetector(
+      padding: const EdgeInsetsDirectional.only(start: 15,top: 40,end: 10,bottom: 25),
+      child: InkWell(
         onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder:
-                      (context)=>const SettingsScreen()
-              ));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>const SettingsScreen()));
           },
         child: Row(
           children: [
@@ -70,7 +66,7 @@ class MyDrawerHeader extends StatelessWidget {
             ),
             const Spacer(),
             Icon(
-              Icons.settings,size: 33,color: Colors.grey.shade600,
+              Icons.settings,size: 30,color: Colors.grey.shade600,
             ),
           ],
         ),

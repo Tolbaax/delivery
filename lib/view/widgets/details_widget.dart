@@ -57,6 +57,9 @@ class Details extends StatelessWidget {
             'Grocery',
             style: TextStyle(fontSize: 20,color: Colors.grey),
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const Icon(Icons.gpp_good_rounded),
