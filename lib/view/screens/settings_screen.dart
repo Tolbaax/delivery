@@ -1,3 +1,6 @@
+import 'package:delivery/translations/locale_keys.g.dart';
+import 'package:delivery/view/screens/homeScreen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -8,217 +11,286 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool value = true;
+  bool val = false;
+  var gValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsetsDirectional.only(top: 40,start: 20,end: 20),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const Icon(Icons.menu,size: 30,),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width*0.26,
-                    ),
-                    const Text(
-                      'Settings',
-                      style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height*0.07,
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      'Account info',
-                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 20),
-                      child: Icon(
-                        Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height*0.05,
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      'Saved addresses',
-                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 20),
-                      child: Icon(
-                        Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height*0.05,
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      'Change email',
-                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 20),
-                      child: Icon(
-                        Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height*0.05,
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      'Change password',
-                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 20),
-                      child: Icon(
-                        Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height*0.05,
-          ),
-          Center(
-            child: Container(
-              height: MediaQuery.of(context).size.height*0.085,
-              width: MediaQuery.of(context).size.width*0.95,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-                boxShadow:  [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.6),
-                    blurRadius: 6,
-                    offset: const Offset(0,4),
-                  ),
-                ]
-              ),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(start: 10,end: 30),
-                child: Row(
-                  children: [
-                    const Text(
-                      'Notifications',
-                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                    ),
-                    const Spacer(),
-                    buildSwitch()
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(top: 30,start: 20,end: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: (){
-                    showDialog(context: context,
-                        builder:(context)=> const AlertDialog(
-                          title: Center(
-                            child: Text(
-                              'Change language',
-                              style: TextStyle(fontSize: 22),
-                            ),
-                          ),
-                        ));
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Language',
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsetsDirectional.only(top: 40,start: 20,end: 20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.menu,size: 30,),
                       SizedBox(
-                        height: 10,
+                        width: MediaQuery.of(context).size.width*0.26,
                       ),
                       Text(
-                        'English',
-                        style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600,color: Colors.orange),
+                        LocaleKeys.settings.tr(),
+                        style: const TextStyle(fontSize: 25,fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height*0.02,
-                ),
-                const Divider(
-                  thickness: 1.5,
-                  color: Colors.black26,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height*0.02,
-                ),
-                Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: const [
-                   Text(
-                     'Country',
-                     style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                   ),
-                   SizedBox(
-                     height: 15,
-                   ),
-                   Text(
-                     'Egypt',
-                     style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600,color: Colors.orange),
-                   ),
-                 ],
-               ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height*0.05,
-                ),
-                const Text(
-                  'Logout',
-                  style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                ),
-              ],
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.05,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        LocaleKeys.account_info.tr(),
+                        style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 20),
+                        child: Icon(
+                          Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.05,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        LocaleKeys.settings.tr(),
+                        style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 20),
+                        child: Icon(
+                          Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.05,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        LocaleKeys.change_email.tr(),
+                        style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 20),
+                        child: Icon(
+                          Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.05,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        LocaleKeys.change_pass.tr(),
+                        style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 20),
+                        child: Icon(
+                          Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: MediaQuery.of(context).size.height*0.05,
+            ),
+            Center(
+              child: Container(
+                height: MediaQuery.of(context).size.height*0.085,
+                width: MediaQuery.of(context).size.width*0.95,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow:  [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.6),
+                      blurRadius: 6,
+                      offset: const Offset(0,4),
+                    ),
+                  ]
+                ),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(start: 10,end: 30),
+                  child: Row(
+                    children: [
+                      Text(
+                        LocaleKeys.dark_mode.tr(),
+                        style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                      ),
+                      const Spacer(),
+                      buildSwitch()
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.only(top: 30,start: 20,end: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: (){
+                      showDialog(context: context,
+                          builder:(context)=> AlertDialog(
+                            title: Center(
+                              child: Text(
+                                LocaleKeys.change_lang.tr(),
+                                style: const TextStyle(fontSize: 25,fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                            content: SizedBox(
+                              height: MediaQuery.of(context).size.height*0.22,
+                              width: MediaQuery.of(context).size.width*0.7,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height*0.02,
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        'العربية',
+                                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                                      ),
+                                      const Spacer(),
+                                      Radio<int>(
+                                        value: 0,
+                                        groupValue: gValue,
+                                        onChanged: (value) async{
+                                          setState(() {
+                                            gValue = 0;
+                                          });
+                                          await context.setLocale(const Locale('ar'));
+                                          Navigator.push(context, MaterialPageRoute(builder:
+                                              (context)=>const HomeScreen()));
+                                        },
+                                        activeColor: Colors.deepOrange,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height*0.02,
+                                  ),
+                                  Divider(
+                                    thickness: 1,
+                                    color: Colors.grey.shade200,
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height*0.02,
+                                  ), 
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        'English',
+                                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                                      ),
+                                      const Spacer(),
+                                      Radio<int>(
+                                        value: 1,
+                                        groupValue: gValue,
+                                        onChanged: (value) async{
+                                          setState(() {
+                                            gValue = 1;
+                                          });
+                                          await context.setLocale(const Locale('en'));
+                                          Navigator.push(context, MaterialPageRoute(builder:
+                                              (context)=>const HomeScreen()));
+                                        },
+                                        activeColor: Colors.deepOrange,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),);
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          LocaleKeys.language.tr(),
+                          style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          LocaleKeys.english.tr(),
+                          style: const TextStyle(fontSize: 17,fontWeight: FontWeight.w600,color: Colors.orange),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.02,
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color: Colors.grey.shade300,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.02,
+                  ),
+                  Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Text(
+                       LocaleKeys.country.tr(),
+                       style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                     ),
+                     const SizedBox(
+                       height: 15,
+                     ),
+                     Text(
+                       LocaleKeys.egypt.tr(),
+                       style: const TextStyle(fontSize: 17,fontWeight: FontWeight.w600,color: Colors.orange),
+                     ),
+                   ],
+                 ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.05,
+                  ),
+                  Text(
+                    LocaleKeys.logout.tr(),
+                    style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   //Switch Button
   Widget buildSwitch()=> Transform.scale(
-    scale: 1.3,
+    scale: 1.2,
     child: Switch(
-      value: value,
-      onChanged: (value)=>setState(()=> this.value = value),
+      value: val,
+      onChanged: (value)=>setState(()=> val = value),
       activeTrackColor: Colors.orangeAccent,
       activeColor: Colors.deepOrange,
       splashRadius: 30,
+
     ),
   );
 }

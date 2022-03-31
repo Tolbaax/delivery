@@ -1,3 +1,5 @@
+import 'package:delivery/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/settings_screen.dart';
@@ -54,9 +56,9 @@ class MyDrawerHeader extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    const Text(
-                      'Egypt',
-                      style: TextStyle(
+                    Text(
+                      LocaleKeys.egypt.tr(),
+                      style: const TextStyle(
                           fontSize: 20,fontWeight: FontWeight.w600,color: Colors.grey
                       ),
                     ),

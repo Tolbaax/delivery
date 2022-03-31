@@ -1,3 +1,5 @@
+import 'package:delivery/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class Notice extends StatefulWidget {
@@ -29,28 +31,31 @@ class _NoticeState extends State<Notice> {
               children: [
                 Row(
                   children: [
-                    const Text(
-                      'Your health and safety is our top priority',
-                      style: TextStyle(
+                    Text(
+                      LocaleKeys.safety.tr(),
+                      style: const TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 16,
                       ),
                     ),
-                    const SizedBox(width: 10,),
+                    const Spacer(),
                     GestureDetector(
                         onTap: () {
                           setState(() {
                             isVisible = !isVisible;
                           });
                         },
-                        child: const Icon(Icons.cancel))
+                        child: const Padding(
+                          padding: EdgeInsetsDirectional.only(end: 10),
+                          child: Icon(Icons.cancel),
+                        ))
                   ],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 Text(
-                  'Learn more',
+                  LocaleKeys.learn_more.tr(),
                   style: TextStyle(
                       color: Colors.amber[800],
                       fontWeight: FontWeight.w600,

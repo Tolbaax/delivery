@@ -1,3 +1,5 @@
+import 'package:delivery/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatelessWidget {
@@ -29,21 +31,21 @@ class Details extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Bob Marley',
-                  style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                Text(
+                  LocaleKeys.bob.tr(),
+                  style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
                 ),
                 Row(
-                  children: const [
-                    Icon(
+                  children: [
+                    const Icon(
                         Icons.delivery_dining
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text(
-                      'Within 50 min',
-                      style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600),
+                      LocaleKeys.within50min.tr(),
+                      style: const TextStyle(fontSize: 17,fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -53,9 +55,9 @@ class Details extends StatelessWidget {
           const SizedBox(
             height: 5.0,
           ),
-          const Text(
-            'Grocery',
-            style: TextStyle(fontSize: 20,color: Colors.grey),
+          Text(
+            LocaleKeys.grocery.tr(),
+            style: const TextStyle(fontSize: 20,color: Colors.grey),
           ),
           const SizedBox(
             height: 5,
@@ -63,9 +65,9 @@ class Details extends StatelessWidget {
           Row(
             children: [
               const Icon(Icons.gpp_good_rounded),
-              const Text(
-                'Good',
-                style: TextStyle(fontSize: 17,color: Colors.grey),
+              Text(
+                LocaleKeys.good.tr(),
+                style: const TextStyle(fontSize: 17,color: Colors.grey),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 7),
@@ -78,9 +80,9 @@ class Details extends StatelessWidget {
                   ),
                 ),
               ),
-              const Text(
-                'Delivery: Free',
-                style: TextStyle(fontSize: 17,color: Colors.grey),
+              Text(
+                LocaleKeys.delivery_free.tr(),
+                style: const TextStyle(fontSize: 17,color: Colors.grey),
               ),
             ],
           ),
