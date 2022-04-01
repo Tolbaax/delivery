@@ -20,11 +20,10 @@ class _CategoryWidgetState extends State<CategoryWidget> {
             height: MediaQuery.of(context).size.height*0.27,
             width: MediaQuery.of(context).size.width*0.43,
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(15),
-                topLeft: Radius.circular(15),
-                bottomLeft: Radius.circular(15),
-
+              borderRadius: const BorderRadiusDirectional.only(
+                bottomEnd: Radius.circular(15),
+                bottomStart: Radius.circular(15),
+                topStart: Radius.circular(15),
               ),
               image: DecorationImage(image: NetworkImage(widget.category.imageUrl),
                   fit: BoxFit.cover
@@ -32,8 +31,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
               color: Colors.teal,
             ),
           ),
-          Positioned(
-            bottom: 15,left: 15,
+          PositionedDirectional(
+            bottom: 15,start: 15,
             child: Text(
               widget.category.name,style: const TextStyle(
                 color: Colors.white,fontSize: 25,fontWeight: FontWeight.w600
