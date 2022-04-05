@@ -1,7 +1,9 @@
+import 'package:delivery/model/provider/theme_provider.dart';
 import 'package:delivery/translations/locale_keys.g.dart';
 import 'package:delivery/view/screens/homeScreen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -134,7 +136,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
                       ),
                       const Spacer(),
-                      buildSwitch()
+                      buildSwitch(),
                     ],
                   ),
                 ),
@@ -175,7 +177,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                         groupValue: gValue,
                                         onChanged: (value) async{
                                           setState(() {
-                                            gValue = 0;
+                                            gValue = value!;
                                           });
                                           await context.setLocale(const Locale('ar'));
                                           Navigator.push(context, MaterialPageRoute(builder:
@@ -194,7 +196,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   ),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height*0.02,
-                                  ), 
+                                  ),
                                   Row(
                                     children: [
                                       const Text(
@@ -207,7 +209,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                         groupValue: gValue,
                                         onChanged: (value) async{
                                           setState(() {
-                                            gValue = 1;
+                                            gValue = value!;
                                           });
                                           await context.setLocale(const Locale('en'));
                                           Navigator.push(context, MaterialPageRoute(builder:
@@ -286,11 +288,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
     scale: 1.2,
     child: Switch(
       value: val,
-      onChanged: (value)=>setState(()=> val = value),
+      onChanged: (value){
+        Provider.of<ThemeProvider>(context,listen: false).changeTheme();
+
+        setState(() {
+          val = value;
+        });
+      },
       activeTrackColor: Colors.orangeAccent,
       activeColor: Colors.deepOrange,
       splashRadius: 30,
-
     ),
   );
 }

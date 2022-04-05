@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text(
                 LocaleKeys.delivering_to.tr(),
-                style: TextStyle(color: Colors.grey[600], fontSize: 17),
+                style: const TextStyle(color: Colors.grey, fontSize: 17),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsetsDirectional.only(start: 20),
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.33,
+                height: MediaQuery.of(context).size.height * 0.34,
                 child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsetsDirectional.only(start: 20),
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.33,
+                height: MediaQuery.of(context).size.height * 0.34,
                 child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,

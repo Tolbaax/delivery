@@ -1,7 +1,9 @@
+import 'package:delivery/model/provider/theme_provider.dart';
 import 'package:delivery/translations/codegen_loader.g.dart';
 import 'package:delivery/view/screens/homeScreen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +17,9 @@ void main() async {
         ],
         fallbackLocale: const Locale('en'),
         assetLoader: const CodegenLoader(),
-        child: const Delivery()),
+        child: MultiProvider(providers: [
+          ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ], child: const Delivery())),
   );
 }
 
@@ -29,7 +33,10 @@ class Delivery extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      theme: ThemeData(),
+      theme: ThemeData(brightness:
+      Provider.of<ThemeProvider>(context).isDark?
+      Brightness.dark:Brightness.light,
+      ),
       home: const HomeScreen(),
     );
   }

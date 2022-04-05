@@ -49,14 +49,13 @@ Widget buildMenuItem({
   required IconData icon,
   required String trText,
 }) {
-  const color = Colors.black;
   return ListTile(
-    leading: Icon(icon, color: color, size: 25,
+    leading: Icon(icon, size: 25,
     ),
     title: Text(
       text,
       style: const TextStyle(
-          color: color, fontSize: 20, fontWeight: FontWeight.w600),
+          fontSize: 20, fontWeight: FontWeight.w800),
     ),
     trailing: Text(
       trText,
