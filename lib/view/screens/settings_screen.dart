@@ -1,5 +1,6 @@
 import 'package:delivery/model/provider/theme_provider.dart';
 import 'package:delivery/translations/locale_keys.g.dart';
+import 'package:delivery/view/screens/homeScreen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -177,9 +178,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                         onChanged: (value) {
                                           setState(() {
                                             gValue = value!;
+                                            context.setLocale(const Locale('ar'));
+                                            Navigator.pushNamed(context, HomeScreen.id);
                                           });
-                                          context.setLocale(const Locale('ar'));
-                                          Navigator.pop(context);
                                         },
                                         activeColor: Colors.deepOrange,
                                       ),
@@ -188,7 +189,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   Padding(
                                     padding: const EdgeInsetsDirectional.only(bottom: 15,top: 15),
                                     child: Divider(
-                                      thickness: 1.5,
+                                      thickness: 1,
                                       color: Colors.grey.shade200,
                                     ),
                                   ),
@@ -207,7 +208,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                             gValue = value!;
                                           });
                                           context.setLocale(const Locale('en'));
-                                          Navigator.pop(context);
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
                                         },
                                         activeColor: Colors.deepOrange,
                                       ),
