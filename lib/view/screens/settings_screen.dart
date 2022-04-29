@@ -13,7 +13,7 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool val = false;
-  int gValue = 1;
+  int gValue = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,7 +172,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       ),
                                       const Spacer(),
                                       Radio<int>(
-                                        value: 2,
+                                        value: 1,
                                         groupValue: gValue,
                                         onChanged: (value) {
                                           setState(() {
@@ -200,7 +200,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       ),
                                       const Spacer(),
                                       Radio<int>(
-                                        value: 3,
+                                        value: 2,
                                         groupValue: gValue,
                                         onChanged: (value){
                                           setState(() {
