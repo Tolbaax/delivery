@@ -38,10 +38,6 @@ class Delivery extends StatelessWidget {
       Brightness.dark:Brightness.light,
       ),
       home: const HomeScreen(),
-
-      routes: {
-        HomeScreen.id: (context) => const HomeScreen(),
-      },
     );
   }
 }

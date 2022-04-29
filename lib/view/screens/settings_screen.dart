@@ -179,7 +179,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           setState(() {
                                             gValue = value!;
                                             context.setLocale(const Locale('ar'));
-                                            Navigator.pushNamed(context, HomeScreen.id);
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
                                           });
                                         },
                                         activeColor: Colors.deepOrange,
