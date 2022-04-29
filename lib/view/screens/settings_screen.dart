@@ -1,6 +1,5 @@
 import 'package:delivery/model/provider/theme_provider.dart';
 import 'package:delivery/translations/locale_keys.g.dart';
-import 'package:delivery/view/screens/homeScreen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +13,7 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool val = false;
-  var gValue;
+  int gValue = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,29 +172,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       ),
                                       const Spacer(),
                                       Radio<int>(
-                                        value: 0,
+                                        value: 2,
                                         groupValue: gValue,
-                                        onChanged: (value) async{
+                                        onChanged: (value) {
                                           setState(() {
                                             gValue = value!;
                                           });
-                                          await context.setLocale(const Locale('ar'));
-                                          Navigator.push(context, MaterialPageRoute(builder:
-                                              (context)=>const HomeScreen()));
+                                          context.setLocale(const Locale('ar'));
+                                          Navigator.pop(context);
                                         },
                                         activeColor: Colors.deepOrange,
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.02,
-                                  ),
-                                  Divider(
-                                    thickness: 1,
-                                    color: Colors.grey.shade200,
-                                  ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height*0.02,
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.only(bottom: 15,top: 15),
+                                    child: Divider(
+                                      thickness: 1.5,
+                                      color: Colors.grey.shade200,
+                                    ),
                                   ),
                                   Row(
                                     children: [
@@ -205,15 +200,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       ),
                                       const Spacer(),
                                       Radio<int>(
-                                        value: 1,
+                                        value: 3,
                                         groupValue: gValue,
-                                        onChanged: (value) async{
+                                        onChanged: (value){
                                           setState(() {
                                             gValue = value!;
                                           });
-                                          await context.setLocale(const Locale('en'));
-                                          Navigator.push(context, MaterialPageRoute(builder:
-                                              (context)=>const HomeScreen()));
+                                          context.setLocale(const Locale('en'));
+                                          Navigator.pop(context);
                                         },
                                         activeColor: Colors.deepOrange,
                                       ),
@@ -301,3 +295,4 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ),
   );
 }
+
