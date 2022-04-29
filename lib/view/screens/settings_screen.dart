@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
-
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
@@ -38,25 +37,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height*0.05,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        LocaleKeys.account_info.tr(),
-                        style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                      ),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 20),
-                        child: Icon(
-                          Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height*0.05,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(top: 30,bottom: 30),
+                    child: Row(
+                      children: [
+                        Text(
+                          LocaleKeys.account_info.tr(),
+                          style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(end: 20),
+                          child: Icon(
+                            Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
+                        ),
+                      ],
+                    ),
                   ),
                   Row(
                     children: [
@@ -72,25 +68,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height*0.05,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        LocaleKeys.change_email.tr(),
-                        style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                      ),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 20),
-                        child: Icon(
-                          Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height*0.05,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(top: 30,bottom: 30),
+                    child: Row(
+                      children: [
+                        Text(
+                          LocaleKeys.change_email.tr(),
+                          style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(end: 20),
+                          child: Icon(
+                            Icons.arrow_forward_ios,color: Colors.grey.shade700,size: 20,),
+                        ),
+                      ],
+                    ),
                   ),
                   Row(
                     children: [
