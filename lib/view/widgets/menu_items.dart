@@ -50,7 +50,7 @@ Widget buildMenuItem({
   required String trText,
 }) {
   return ListTile(
-    leading: Icon(icon, size: 25,
+    leading: Icon(icon, size: 25,color: Colors.grey.shade600,
     ),
     title: Text(
       text,

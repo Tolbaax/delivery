@@ -52,7 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           child: const Icon(
             Icons.menu,
-            color: Colors.black,
             size: 30,
           ),
         ),
@@ -85,13 +84,10 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsetsDirectional.only(end: 10),
             child: Icon(
               Icons.search,
-              color: Colors.black,
               size: 30,
             ),
           ),
         ],
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
         child: Column(

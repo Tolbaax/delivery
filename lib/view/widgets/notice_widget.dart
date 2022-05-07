@@ -21,7 +21,7 @@ class _NoticeState extends State<Notice> {
           height: MediaQuery.of(context).size.height*0.13,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: Colors.deepPurple[50],
+            color: Theme.of(context).hoverColor,
           ),
           child: Padding(
             padding: const EdgeInsetsDirectional.only(start: 20),

@@ -111,10 +111,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 width: MediaQuery.of(context).size.width*0.95,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+                    color: Theme.of(context).primaryColor,
                   boxShadow:  [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.6),
+                      color: Colors.grey.withOpacity(0.5),
                       blurRadius: 6,
                       offset: const Offset(0,4),
                     ),
