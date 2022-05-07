@@ -4,7 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for using easy localization package.
+
+1. [x] Provider State management
+2. [x] easy localization package.
+3. [x] Change theme using provider
+
 
 A few resources to get you started if this is your first Flutter project:
 
